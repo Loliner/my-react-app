@@ -61,8 +61,10 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 // 使得js中使用相对路径引入模块时，限定根目录，不要跑到外面去找
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
-// ？？？
+// MyFolder/MyComponent.module.css 下的class .MyClass 会被转换成 .MyComponent.module_MyClass__[hash]
+// MyFolder/index.module.css 下的class MyClass 会被转换成 .MyFolder_MyClass__[hash]
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+
 const paths = require('./paths');
 const modules = require('./modules');
 console.log('modules ', modules);
