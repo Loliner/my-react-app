@@ -42,7 +42,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // PostCss 语法解析器
 const safePostCssParser = require('postcss-safe-parser');
 
-// 生成 manifest.json 文件 
+// 生成 asset-manifest.json 文件 
 // {
 //   "mods/alpha.js": "mods/alpha.1234567890.js",
 //   "mods/omega.js": "mods/omega.0987654321.js"

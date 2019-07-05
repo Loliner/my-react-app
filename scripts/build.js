@@ -48,11 +48,12 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 // Generate configuration
 const config = configFactory('production');
-console.log('webpack config ', config);
+// console.log('webpack config ', config);
 
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
+console.log('isInteractive ', isInteractive);
 checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
     // First, read the current file sizes in build directory.
@@ -60,6 +61,9 @@ checkBrowsers(paths.appPath, isInteractive)
     return measureFileSizesBeforeBuild(paths.appBuild);
   })
   .then(previousFileSizes => {
+    // 此处输出的是 上一次build后，build文件夹下面文件的大小
+    console.log('previousFileSizes', previousFileSizes);
+
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
     fs.emptyDirSync(paths.appBuild);
